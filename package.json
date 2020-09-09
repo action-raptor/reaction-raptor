@@ -5,11 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "start-local": "ts-node app"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@slack/bolt": "^2.2.3"
+    "@slack/bolt": "^2.2.3",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   }
 }
