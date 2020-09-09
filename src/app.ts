@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-import {placeholderMenu} from "./src/views";
+import {placeholderMenu} from "./views";
 
 const {App} = require('@slack/bolt');
 const app = new App({
