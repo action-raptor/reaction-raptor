@@ -1,11 +1,12 @@
 require('dotenv').config();
 
-import {placeholderMenu} from "./views";
+import {landingPage, placeholderMenu} from "./views";
+const { App, ExpressReceiver } = require('@slack/bolt');
 
-const {App} = require('@slack/bolt');
+const receiver = new ExpressReceiver({ signingSecret: process.env.SLACK_SIGNING_SECRET });
 const app = new App({
     token: process.env.SLACK_TOKEN,
-    signingSecret: process.env.SLACK_SIGNING_SECRET
+    receiver
 });
 
 app.message('hello', async ({message, say}) => {
@@ -43,6 +44,11 @@ app.command('/reaction', async ({command, ack, say}) => {
     await say({
         blocks: placeholderMenu
     });
+});
+
+
+receiver.router.get('/', (req, res) => {
+    res.send(landingPage);
 });
 
 (async () => {
