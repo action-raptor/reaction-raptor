@@ -10,7 +10,8 @@ const app = new App({
     receiver
 });
 
-app.message('hello', async ({message, say}) => {
+
+app.message('hello', async ({message, say}: any) => {
     await say({
         blocks: [
             {
@@ -33,19 +34,19 @@ app.message('hello', async ({message, say}) => {
     });
 });
 
-app.action('button_click', async ({body, ack, say}) => {
+app.action('button_click', async ({body, ack, say}: any) => {
     // Acknowledge the action
     await ack();
     await say(`<@${body.user.id}> clicked the button`);
 });
 
-app.command('/reaction', async ({command, ack, say}) => {
+app.command('/reaction', async ({command, ack, say}: any) => {
     await ack({
         blocks: placeholderMenu
     });
 });
 
-receiver.router.get('/', (req, res) => {
+receiver.router.get('/', (req: any, res: any) => {
     res.send(landingPage);
 });
 
