@@ -7,7 +7,7 @@
     "build": "tsc",
     "lint": "tslint --project tsconfig.json",
     "postinstall": "yarn run build",
-    "start": "node liv/app.js",
+    "start": "node lib/app.js",
     "start-local": "ts-node src/app.ts"
   },
   "engines": {
